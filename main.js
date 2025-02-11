@@ -22,13 +22,21 @@ add([
 ]);
 setGravity(1600);
 
-add([
-    rect(48, 64),
-    area(),
-    outline(4),
-    pos(width(), height() - 48),
-    anchor("botleft"),
-    color(255, 180, 255),
-    move(LEFT, 240),
-    "tree", // add a tag here
-]);
+loop(1, () => {
+    // add tree
+    add([
+        rect(48, 64),
+        area(),
+        outline(4),
+        pos(width(), height() - 48),
+        anchor("botleft"),
+        color(255, 180, 255),
+        move(LEFT, 240),
+        "tree", // add a tag here
+    ]);
+});
+
+player.onCollide("tree", () => {
+    addKaboom(player.pos);
+    shake();
+});

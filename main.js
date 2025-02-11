@@ -2,8 +2,22 @@ import kaplay from "https://unpkg.com/kaplay@3001/dist/kaplay.mjs";
 kaplay();
 loadSprite("dracula", "dracula.png");
 
-add([sprite("dracula"), pos(80, 40)]);
+const player = add([sprite("dracula"), pos(80, 40),area(),body()]);
 add([
   text("KorhoneCom KAPLAY testing"), 
   pos(20, 40)
 ]);
+onKeyPress("space", () => {
+    if (bean.isGrounded()) {
+        bean.jump();
+    }
+});
+add([
+    rect(width(), 48),
+    pos(0, height() - 48),
+    outline(4),
+    area(),
+    body({ isStatic: true }),
+    color(127, 200, 255),
+]);
+setGravity(1600);

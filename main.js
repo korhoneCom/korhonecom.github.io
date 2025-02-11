@@ -8,8 +8,8 @@ add([
   pos(20, 40)
 ]);
 onKeyPress("space", () => {
-    if (bean.isGrounded()) {
-        bean.jump();
+    if (player.isGrounded()) {
+        player.jump();
     }
 });
 add([
